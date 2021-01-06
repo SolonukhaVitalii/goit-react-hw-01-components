@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Profile = ({ avatar, name, tag, location,  stats }) => { 
+function Profile({ avatar, name, tag, location,  stats }) { 
     return (
         <div className="profile">
             <div className="description">
@@ -16,11 +16,11 @@ const Profile = ({ avatar, name, tag, location,  stats }) => {
             </div>
             <ul className="stats">
                 <li>
-                    <span className="label">
-                        {Object.keys(stats)[0].slice(0, 1).toLocaleUpperCase() +
-                          Object.keys(stats)[0].slice(1).toLocaleLowerCase()}
-                        :
-                    </span>
+                <span className="label">
+                    {Object.keys(stats)[0].slice(0, 1).toLocaleUpperCase() +
+                    Object.keys(stats)[0].slice(1).toLocaleLowerCase()}
+                    :
+                </span>
                 <span className="quantity">{stats.followers}</span>
                 </li>
                 <li>
