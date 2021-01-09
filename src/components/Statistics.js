@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Statistics({ title, stats }){
+export default function Statistics({ title, stats }){
     return (
         <section class="statistics">
             {title && <h2 className="title">Upload stats</h2>}
@@ -32,16 +32,3 @@ Statistics.propTypes = {
     title: PropTypes.string,
     stats: PropTypes.node.isRequired,
 };
-
-Statistics.defaultProps = {
-    title: '',
-    stats: PropTypes.arrayOf(
-        PropTypes.shape({
-            docx: 0,
-            mp3: 0,
-            pdf: 0,
-            mp4: 0,
-        }))
-};
-
-export default Statistics;

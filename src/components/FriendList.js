@@ -1,39 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function FriendList({ friends }) {
+export default function FriendList({ friends }) {
     return (
-        <ul>
+        <ul className='friend-list'>
             {friends.map(friend => (
-                <li key={friend.id}>
-                    <span>
-                    </span>
-                    <img />
-                    <p>friend.name</p>
+                <li className="item" key={friend.id}>
+                    <span className="status">{friend.isOnline}</span>
+                    <img className="avatar" src={friend.avatar} alt={friend.title} width="48" />
+                    <p className="name">{friend.name}</p>
                 </li>
             ))}
         </ul>
     )
 };
 
-
-
 FriendList.propTypes = {
     friends: PropTypes.arrayOf(
         PropTypes.exact({
-            id: PropTypes.string.isRequired,
+            id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired,
             avatar: PropTypes.string.isRequired,
             isOnline: PropTypes.string.isRequired,
         })
     ).isRequired,
 };
-
-FriendList.defaultProps = {
-
-};
-
-
-
-
-export default FriendList;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Profile({ avatar, name, tag, location,  stats }) { 
+export default function Profile({ avatar, name, tag, location,  stats }) { 
     return (
         <div className="profile">
             <div className="description">
@@ -46,13 +46,11 @@ Profile.propTypes = {
 
 Profile.defaultProps = {
     avatar:
-        "https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg",
-    stats: PropTypes.arrayOf(
-        PropTypes.shape({
-            followers: 0,
-            views: 0,
-            likes: 0,
-        }))
-};
-  
-export default Profile;
+    "https://www.flaticon.com/svg/static/icons/svg/3784/3784184.svg",
+   stats: PropTypes.arrayOf(
+      PropTypes.shape({
+        followers: 0,
+        views: 0,
+        likes: 0,
+    }))  
+  };
