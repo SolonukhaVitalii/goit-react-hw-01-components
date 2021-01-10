@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Profile({ avatar, name, tag, location,  stats }) { 
@@ -16,41 +15,42 @@ export default function Profile({ avatar, name, tag, location,  stats }) {
             </div>
             <ul className="stats">
                 <li>
-                <span className="label">
-                    {Object.keys(stats)[0].slice(0, 1).toLocaleUpperCase() +
-                    Object.keys(stats)[0].slice(1).toLocaleLowerCase()}
-                    :
-                </span>
+                <span className="label">Followers</span>
                 <span className="quantity">{stats.followers}</span>
                 </li>
                 <li>
-                <span className="label">Views:</span>
+                <span className="label">Views</span>
                 <span className="quantity">{stats.views}</span>
                 </li>
                 <li>
-                <span className="label">Likes:</span>
+                <span className="label">Likes</span>
                 <span className="quantity">{stats.likes}</span>
                 </li>
             </ul>
         </div>
     );
-}
+};
 
 Profile.propTypes = {
     name: PropTypes.string.isRequired,
     tag: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
     avatar: PropTypes.string.isRequired,
-    stats: PropTypes.number.isRequired,
+    stats: PropTypes.arrayOf(
+        PropTypes.shape({
+            followers: PropTypes.number.isRequired,
+            views: PropTypes.number.isRequired,
+            likes: PropTypes.number.isRequired,
+        }),
+    ),
 };
 
 Profile.defaultProps = {
-    avatar:
-    "https://www.flaticon.com/svg/static/icons/svg/3784/3784184.svg",
-   stats: PropTypes.arrayOf(
-      PropTypes.shape({
-        followers: 0,
-        views: 0,
-        likes: 0,
-    }))  
-  };
+    stats: PropTypes.arrayOf(
+        PropTypes.shape({
+            followers: 0,
+            views: 0,
+            likes: 0,
+        }),
+    ),
+};
