@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function FriendList({ friends }) {
     return (
-        <ul class="friend-list">
+        <ul className="friend-list">
             {friends.map(friend => (
                 <li key={friend.id}>
                     <FriendListItem
@@ -19,7 +19,10 @@ export default function FriendList({ friends }) {
 
 FriendList.propTypes = {
     friends: PropTypes.arrayOf(PropTypes.shape({
-            id: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        isOnline: PropTypes.boolean,
+        avatar: PropTypes.string,
+        name: PropTypes.string,
         }),
     ),
 };
