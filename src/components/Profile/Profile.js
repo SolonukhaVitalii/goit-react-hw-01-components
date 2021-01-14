@@ -1,30 +1,31 @@
 import PropTypes from 'prop-types';
+import s from './Profile.module.css';
 
 export default function Profile({ avatar, name, tag, location,  stats }) { 
     return (
-        <div className="profile">
-            <div className="description">
+        <div className={s.profile}>
+            <div className={s.description}>
                 <img
-                src={avatar}
-                alt="Аватар пользователя"
-                className="avatar"
+                    src={avatar}
+                    alt="Аватар пользователя"
+                    className={s.avatar}
                 />
-                <p className="name">{name}</p>
-                <p className="tag">@{tag}</p>
-                <p className="location">{location}</p>
+                <p className={s.name}>{name}</p>
+                <p className={s.tag}>@{tag}</p>
+                <p className={s.location}>{location}</p>
             </div>
-            <ul className="stats">
+            <ul className={s.stats}>
                 <li>
-                <span className="label">Followers</span>
-                <span className="quantity">{stats.followers}</span>
+                <span className={s.label}>Followers</span>
+                <span className={s.quantity}>{stats.followers}</span>
                 </li>
                 <li>
-                <span className="label">Views</span>
-                <span className="quantity">{stats.views}</span>
+                <span className={s.label}>Views</span>
+                <span className={s.quantity}>{stats.views}</span>
                 </li>
                 <li>
-                <span className="label">Likes</span>
-                <span className="quantity">{stats.likes}</span>
+                <span className={s.label}>Likes</span>
+                <span className={s.quantity}>{stats.likes}</span>
                 </li>
             </ul>
         </div>
@@ -32,10 +33,10 @@ export default function Profile({ avatar, name, tag, location,  stats }) {
 };
 
 Profile.propTypes = {
-    name: PropTypes.string,
-    tag: PropTypes.string,
-    location: PropTypes.string,
-    avatar: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
     stats: PropTypes.shape({
             followers: PropTypes.number,
             views: PropTypes.number,
@@ -44,11 +45,10 @@ Profile.propTypes = {
 };
 
 Profile.defaultProps = {
-    stats: PropTypes.objectOf(
+    stats: PropTypes.arrayOf(
         PropTypes.shape({
             followers: 0,
             views: 0,
             likes: 0,
-        }),
-    ),
+        })),
 };
